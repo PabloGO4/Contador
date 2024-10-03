@@ -30,6 +30,11 @@ class _CounterScreenState extends State<CounterScreen> {
       _counter++;
     });
   }
+  void _resetCounter() {
+    setState(() {
+      _counter = 0;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +57,11 @@ class _CounterScreenState extends State<CounterScreen> {
               icon: Icon(Icons.add),
               onPressed: _incrementCounter,
               tooltip: 'Sumar',
+            ),
+            IconButton(
+              icon: Icon(Icons.refresh),
+              onPressed: _resetCounter,
+              tooltip: 'Reiniciar',
             ),
           ],
         ),
