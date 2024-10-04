@@ -27,7 +27,21 @@ class _CounterScreenState extends State<CounterScreen> {
 
   void _incrementCounter() {
     setState(() {
+
+     
       _counter++;
+    });
+  }
+  void _decrementCounter() {
+    setState(() {
+      
+      _counter--;
+    });
+    
+  }
+  void _resetCounter() {
+    setState(() {
+      _counter = 0;
     });
   }
 
@@ -48,10 +62,25 @@ class _CounterScreenState extends State<CounterScreen> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.remove),
+                  onPressed: _decrementCounter,
+                  tooltip: 'Restar',
+                ),
+                IconButton(
+                  icon: Icon(Icons.add),
+                  onPressed: _incrementCounter,
+                  tooltip: 'Sumar',
+                ),
+              ],
+            ),
             IconButton(
-              icon: Icon(Icons.add),
-              onPressed: _incrementCounter,
-              tooltip: 'Sumar',
+              icon: Icon(Icons.refresh),
+              onPressed: _resetCounter,
+              tooltip: 'Reiniciar',
             ),
           ],
         ),
@@ -59,3 +88,29 @@ class _CounterScreenState extends State<CounterScreen> {
     );
   }
 }
+
+
+     /*floatingActionButton: Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          
+          FloatingActionButton(
+            onPressed: _incrementCounter,
+            tooltip: 'Incrementar',
+            child: Icon(Icons.add),
+          ),
+          
+          SizedBox(
+            height: 15.0, //Esto es solo para dar margen entre los FAB
+          ),
+
+          FloatingActionButton(
+            onPressed: _decrementCounter,
+            tooltip: 'Restar',
+            child: Icon(Icons.remove),
+          ),
+          
+        ],
+      ),*/
+
+ 
