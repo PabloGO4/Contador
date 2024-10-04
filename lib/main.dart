@@ -56,7 +56,7 @@ class _CounterScreenState extends State<CounterScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Contador'),
-        title: const Text('Contador'),
+        //title: const Text('Contador'),
       ),
       body: Center(
         child: Column(
@@ -64,8 +64,6 @@ class _CounterScreenState extends State<CounterScreen> {
           children: <Widget>[
             Text(
               'Has presionado el botón:',
-            const Text(
-              'Presionaste el botón:',
             ),
             Text(
               '$_counter',
@@ -90,49 +88,13 @@ class _CounterScreenState extends State<CounterScreen> {
               icon: Icon(Icons.refresh),
               onPressed: _resetCounter,
               tooltip: 'Reiniciar',
-
-              icon: Icon(Icons.add),
-              icon: const Icon(Icons.add),
-              onPressed: _incrementCounter,
-              tooltip: 'Sumar',
-            ),
-            IconButton(
-              icon: Icon(Icons.refresh),
-              icon: const Icon(Icons.refresh),
-              onPressed: _resetCounter,
-              tooltip: 'Reiniciar',
             ),
           ],
         ),
       ),
 
-     floatingActionButton: Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          
-          FloatingActionButton(
-            onPressed: _incrementCounter,
-            tooltip: 'Incrementar',
-            child: Icon(Icons.add),
-          ),
-          
-          SizedBox(
-            child: const Icon(Icons.add),
-          ),
-          
-          const SizedBox(
-            height: 15.0, //Esto es solo para dar margen entre los FAB
-          ),
-
-          FloatingActionButton(
-            onPressed: _decrementCounter,
-            tooltip: 'Restar',
-            child: Icon(Icons.remove),
-            child: const Icon(Icons.remove),
-          ),
-          
-        ],
-      ),
+     
+      
 
     );
   }
