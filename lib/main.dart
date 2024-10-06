@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+>>>>>>> alejandro
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: CounterScreen(),
+      home: const CounterScreen(),
     );
   }
 }
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
 class CounterScreen extends StatefulWidget {
   const CounterScreen({super.key});
 
+>>>>>>> alejandro
   @override
   _CounterScreenState createState() => _CounterScreenState();
 }
@@ -49,30 +51,102 @@ class _CounterScreenState extends State<CounterScreen> {
     });
   }
 
+  body: Center(
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+      Text(
+        'Has presionado el botón:',
+      ),
+      Text(
+        '$_counter',
+        style: Theme.of(context).textTheme.headlineMedium,
+      ),
+      CounterWidget(), // Agrega el CounterWidget aquí
+    ],
+  ),
+),
+
+class CustomAmountButton extends StatefulWidget {
+  @override
+  _CustomAmountButtonState createState() => _CustomAmountButtonState();
+}
+
+class _CustomAmountButtonState extends State<CustomAmountButton> {
+  final _formKey = GlobalKey<FormState>();
+  int _customAmount = 0;
+
+  void _addCustomAmount() {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        _counter += _customAmount;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Row(
+        children: [
+          Expanded(
+            child: TextFormField(
+              decoration: InputDecoration(
+                labelText: 'Cantidad personalizada',
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Ingrese una cantidad';
+                }
+                return null;
+              },
+              onSaved: (value) => _customAmount = int.parse(value!),
+            ),
+          ),
+          ElevatedButton(
+            onPressed: _addCustomAmount,
+            child: Text('Agregar'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text('Contador'),
         title: const Text('Contador'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text(
+              'Has presionado el botón:',
+=======
             const Text(
               'Presionaste el botón:',
+>>>>>>> alejandro
             ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             IconButton(
+              icon: Icon(Icons.add),
               icon: const Icon(Icons.add),
               onPressed: _incrementCounter,
               tooltip: 'Sumar',
             ),
             IconButton(
+              icon: Icon(Icons.refresh),
+=======
               icon: const Icon(Icons.refresh),
+>>>>>>> alejandro
               onPressed: _resetCounter,
               tooltip: 'Reiniciar',
             ),
@@ -80,13 +154,25 @@ class _CounterScreenState extends State<CounterScreen> {
         ),
       ),
 
-     floatingActionButton: Column(
+     
+      
+
+    );
+  }
+}
+
+
+     /*floatingActionButton: Column(
       mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           
           FloatingActionButton(
             onPressed: _incrementCounter,
             tooltip: 'Incrementar',
+            child: Icon(Icons.add),
+          ),
+          
+          SizedBox(
             child: const Icon(Icons.add),
           ),
           
@@ -97,12 +183,11 @@ class _CounterScreenState extends State<CounterScreen> {
           FloatingActionButton(
             onPressed: _decrementCounter,
             tooltip: 'Restar',
+            child: Icon(Icons.remove),
             child: const Icon(Icons.remove),
           ),
           
         ],
-      ),
+      ),*/
 
-    );
-  }
-}
+ 
