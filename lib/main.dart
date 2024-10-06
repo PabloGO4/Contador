@@ -118,11 +118,8 @@ class _CustomAmountButtonState extends State<CustomAmountButton> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-<<<<<<< HEAD
         title: Text('Contador'),
-=======
         title: const Text('Contador'),
->>>>>>> alejandro
       ),
       body: Center(
         child: Column(
@@ -140,11 +137,8 @@ class _CustomAmountButtonState extends State<CustomAmountButton> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             IconButton(
-<<<<<<< HEAD
               icon: Icon(Icons.add),
-=======
               icon: const Icon(Icons.add),
->>>>>>> alejandro
               onPressed: _incrementCounter,
               tooltip: 'Sumar',
             ),
@@ -175,28 +169,22 @@ class _CustomAmountButtonState extends State<CustomAmountButton> {
           FloatingActionButton(
             onPressed: _incrementCounter,
             tooltip: 'Incrementar',
-<<<<<<< HEAD
             child: Icon(Icons.add),
           ),
           
           SizedBox(
-=======
             child: const Icon(Icons.add),
           ),
           
           const SizedBox(
->>>>>>> alejandro
             height: 15.0, //Esto es solo para dar margen entre los FAB
           ),
 
           FloatingActionButton(
             onPressed: _decrementCounter,
             tooltip: 'Restar',
-<<<<<<< HEAD
             child: Icon(Icons.remove),
-=======
             child: const Icon(Icons.remove),
->>>>>>> alejandro
           ),
           
         ],
